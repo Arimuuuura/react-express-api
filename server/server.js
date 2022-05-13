@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const request = require("request");
 
-const PORT = 3000;
+const PORT = 5000;
 
 app.get("/", (req, res) => {
 	res.send("Hello from backend");
@@ -23,5 +23,5 @@ const options = {
 }
 
 app.listen(PORT, () => {
-	console.log(`Listen port ${PORT}... http://localhost:${PORT}`);
+	console.log(`Backend server port ${PORT}... http://localhost:${PORT}`);
 });
