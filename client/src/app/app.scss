@@ -1,0 +1,28 @@
+@import "./static/scss/variables";
+
+main {
+	max-width: 598px;
+	padding: 16px;
+	background-color: $c-grey_1;
+
+	.user {
+		&-image {
+			width: 100px;
+			height: 100px;
+			border-radius: 100%;
+			border: 2px $c-border_4 solid;
+		}
+
+		&-name {
+			color: $c-text_2;
+		}
+
+		&-login {
+			color: $c-text_1;
+		}
+
+		&-location {
+			color: $c-text_1;
+		}
+	}
+}
