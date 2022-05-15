@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
-const request = require("request");
 const cors = require("cors");
 const PORT = 5000;
+
+const myAccountRouter = require("./routes/my_account");
+const followingRouter = require("./routes/following");
 
 app.use(cors())
 
@@ -10,21 +12,22 @@ app.get("/", (req, res) => {
 	res.send("Hello from backend");
 });
 
-const options = {
-	url: 'https://api.github.com/users/arimuuuura',
-	method: 'GET',
-	json: true,
-	headers: {
-		'User-Agent': 'request'
-	}
-}
+// app.post("/hello/:user", (req, res) => {
+// 	console.log(req.params);
+// 	res.send("Hello");
+// });
 
-const github = request(options, (error, response, body) => body);
-
-app.get("/api/github", (req, res) => {
-	const accountData = github.response.body;
-	res.json({accountData});
+app.get("/api/hello", (req, res) => {
+	const user = req.query.user;
+	console.log(user);
+	res.send(user);
 });
+
+// My account api
+app.use("/", myAccountRouter);
+
+// Following users api
+app.use("/", followingRouter);
 
 app.listen(PORT, () => {
 	console.log(`Backend server port ${PORT}... http://localhost:${PORT}`);
