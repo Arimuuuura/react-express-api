@@ -20,6 +20,7 @@ export const Following = () => {
 			<Link to="/">Home</Link>
 			<Link to="/following">Following</Link>
 			<Link to="/followers">Followers</Link>
+			<Link to="/repository">Repository</Link>
 			{
 				followingUsers.followingUsers ? (
 					<div>

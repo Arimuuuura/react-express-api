@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Followers } from '../components/main/followers/Followers';
 import { Following } from '../components/main/following/Following';
 import { Main } from '../components/main/Main';
+import { Repository } from '../components/main/repository/Repository';
 
 
 export const Router = () => {
@@ -17,6 +18,9 @@ export const Router = () => {
 			</Routes>
 			<Routes>
 				<Route path="/followers" element={<Followers />} />
+			</Routes>
+			<Routes>
+				<Route path="/repository" element={<Repository />} />
 			</Routes>
 		</>
   	)

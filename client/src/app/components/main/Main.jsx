@@ -45,6 +45,7 @@ export const Main = () => {
 					<p>最終更新{prepareTimestamp(data.accountData.updated_at).year}年{prepareTimestamp(data.accountData.updated_at).month}月</p>
 					<Link to="/following">{data.accountData.following} following</Link>
 					<Link to="/followers">{data.accountData.followers} followers</Link>
+					<Link to="/repository">{data.accountData.public_repos} Public Repository</Link>
 					<p>{data.accountData.public_repos} Public Repository</p>
 					<p>{data.accountData.repos_url}</p>
 				</div>

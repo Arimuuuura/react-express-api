@@ -6,6 +6,7 @@ const PORT = 5000;
 const myAccountRouter = require("./routes/my_account");
 const followingRouter = require("./routes/following");
 const followersRouter = require("./routes/followers");
+const repositoryRouter = require("./routes/repository");
 
 app.use(cors())
 
@@ -32,6 +33,9 @@ app.use("/", followingRouter);
 
 // follower users api
 app.use("/", followersRouter);
+
+// repository api
+app.use("/", repositoryRouter);
 
 app.listen(PORT, () => {
 	console.log(`Backend server port ${PORT}... http://localhost:${PORT}`);
