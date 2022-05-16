@@ -1,17 +1,18 @@
 import React from 'react';
 
 import { Header } from './components/header/Header';
-import { Main } from './components/main/Main';
 import { Footer } from './components/footer/Footer';
 import './app.scss';
+import { Router } from './router/Router';
+import { BrowserRouter } from 'react-router-dom';
 
 export const App = () => {
 
   return (
-    <>
+    <BrowserRouter>
       <Header/>
-      <Main />
+      <Router />
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
