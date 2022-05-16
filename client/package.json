@@ -37,6 +37,9 @@
   },
   "proxy": "http://localhost:5000",
   "devDependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.7.0",
     "react-router-dom": "^6.3.0",
     "sass": "^1.51.0"
   }

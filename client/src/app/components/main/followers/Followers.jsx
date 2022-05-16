@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { List, ListItem, Divider, ListItemAvatar, Avatar, Link as MuiLink } from '@mui/material';
 
 import "./followers.scss";
 
@@ -13,8 +14,6 @@ export const Followers = () => {
 		.then(data => setFollowers(data));
 	}, []);
 
-	followers && console.log(followers);
-
 	return (
 		<>
 			<Link to="/">Home</Link>
@@ -23,16 +22,23 @@ export const Followers = () => {
 			<Link to="/repository">Repository</Link>
 			{
 				followers.followerUsers ? (
-					<div>
+					<List>
 						{
 							followers.followerUsers.map((user, index) => (
-								<div key={index} className='followers-container'>
-									<img className='followers-image' src={user.avatar_url} alt="account imag" />
-									<a className='followers-name' href={user.html_url}>{user.login}</a>
+								<div key={index}>
+									<ListItem className='followers-container' alignItems="flex-start">
+										<ListItemAvatar>
+											<Avatar className='followers-image' alt="account imag" src={user.avatar_url} />
+										</ListItemAvatar>
+										<MuiLink href={user.html_url} underline="hover" className='followers-name'>
+											{user.login}
+										</MuiLink>
+									</ListItem>
+									<Divider variant="inset" component="li" />
 								</div>
 							))
 						}
-					</div>
+					</List>
 				) : (
 					<p>User data nothing..</p>
 				)
