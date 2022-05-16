@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from "react-router-dom";
+import { Followers } from '../components/main/followers/Followers';
 import { Following } from '../components/main/following/Following';
 import { Main } from '../components/main/Main';
 
@@ -13,6 +14,9 @@ export const Router = () => {
 			</Routes>
 			<Routes>
 				<Route path="/following" element={<Following />} />
+			</Routes>
+			<Routes>
+				<Route path="/followers" element={<Followers />} />
 			</Routes>
 		</>
   	)

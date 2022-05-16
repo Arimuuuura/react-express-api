@@ -13,11 +13,13 @@ export const Following = () => {
 		.then(data => setFollowingUsers(data));
 	}, []);
 
-	followingUsers && console.log(followingUsers);
+	// followingUsers && console.log(followingUsers);
 
 	return (
 		<div>
 			<Link to="/">Home</Link>
+			<Link to="/following">Following</Link>
+			<Link to="/followers">Followers</Link>
 			{
 				followingUsers.followingUsers ? (
 					<div>
