@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
 
 export const Repository = () => {
 	const [ repositories, setRepositories ] = useState({})
@@ -14,10 +13,6 @@ export const Repository = () => {
 	repositories && console.log(repositories);
 	return (
 		<>
-			<Link to="/">Home</Link>
-			<Link to="/following">Following</Link>
-			<Link to="/followers">Followers</Link>
-			<Link to="/repository">Repository</Link>
 			{
 				repositories.repositoryData ? (
 					<div>

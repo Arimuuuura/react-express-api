@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { List, ListItem, Divider, ListItemAvatar, Avatar, Link as MuiLink } from '@mui/material';
 
 import "./following.scss";
@@ -15,11 +14,7 @@ export const Following = () => {
 	}, []);
 
 	return (
-		<div>
-			<Link to="/">Home</Link>
-			<Link to="/following">Following</Link>
-			<Link to="/followers">Followers</Link>
-			<Link to="/repository">Repository</Link>
+		<>
 			{
 				followingUsers.followingUsers ? (
 					<List>
@@ -43,6 +38,6 @@ export const Following = () => {
 					<p>User data nothing..</p>
 				)
 			}
-		</div>
+		</>
  	)
 }

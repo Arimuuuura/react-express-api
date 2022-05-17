@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from "react-router-dom";
+import { Router } from '../../router/Router';
+import { Tabs } from './tabs/Tabs';
+
+import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 
 export const Main = () => {
 	const [ data, setData ] = useState({})
@@ -26,8 +29,6 @@ export const Main = () => {
 
 	return (
 		<main>
-			<a href="/">HOME</a>
-			<div>Hello from react</div>
 			<form action={`http://localhost:5000/api/hello`} method='get'>
 				<input type="text" value={inputName} name="user" onChange={inputUser} />
 				<button type='submit' onClick={onClickButton}>Click Hear!!</button>
@@ -35,19 +36,37 @@ export const Main = () => {
 			{
 			data.accountData ? (
 				<div>
-					<a href={data.accountData.html_url}>
-						<img className='user-image' src={data.accountData.avatar_url} alt="" />
-					</a>
-					<h2 className='user-name'>{data.accountData.name}</h2>
-					<p className='user-login'>{data.accountData.login}</p>
-					<p className='user-location'>{data.accountData.location}</p>
-					<p>{prepareTimestamp(data.accountData.created_at).year}年{prepareTimestamp(data.accountData.created_at).month}月からGithubを利用しています</p>
-					<p>最終更新{prepareTimestamp(data.accountData.updated_at).year}年{prepareTimestamp(data.accountData.updated_at).month}月</p>
-					<Link to="/following">{data.accountData.following} following</Link>
-					<Link to="/followers">{data.accountData.followers} followers</Link>
-					<Link to="/repository">{data.accountData.public_repos} Public Repository</Link>
-					<p>{data.accountData.public_repos} Public Repository</p>
-					<p>{data.accountData.repos_url}</p>
+					<Card sx={{ display: 'flex' }}>
+						<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+							<CardContent sx={{ flex: '1 0 auto' }}>
+								<Typography component="div" variant="h5">
+									{data.accountData.name}
+								</Typography>
+								<Typography variant="subtitle1" color="text.secondary" component="div">
+									{data.accountData.login}
+								</Typography>
+							</CardContent>
+							<Box sx={{ alignItems: 'center', pl: 2, pb: 3 }}>
+								<Typography variant="subtitle1" color="text.secondary" component="div">
+									{data.accountData.location}
+								</Typography>
+								<Typography variant="subtitle1" color="text.secondary" component="div">
+									{prepareTimestamp(data.accountData.created_at).year}年{prepareTimestamp(data.accountData.created_at).month}月からGithubを利用しています
+								</Typography>
+								<Typography variant="subtitle1" color="text.secondary" component="div">
+									最終更新{prepareTimestamp(data.accountData.updated_at).year}年{prepareTimestamp(data.accountData.updated_at).month}月
+								</Typography>
+							</Box>
+						</Box>
+						<CardMedia
+							component="img"
+							className='user-image'
+							image={data.accountData.avatar_url}
+							alt="Live from space album cover"
+						/>
+					</Card>
+					<Tabs />
+					<Router />
 				</div>
 			) : (
 				<p>false</p>

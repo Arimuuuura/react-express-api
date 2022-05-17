@@ -7,10 +7,11 @@ main {
 
 	.user {
 		&-image {
-			width: 100px;
-			height: 100px;
+			width: 150px;
+			height: 150px;
 			border-radius: 100%;
 			border: 2px $c-border_4 solid;
+			margin: 16px auto 0;
 		}
 
 		&-name {

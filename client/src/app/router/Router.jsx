@@ -11,7 +11,7 @@ export const Router = () => {
 	return (
 		<>
 			<Routes>
-				<Route path="/" exact element={<Main />} />
+				<Route path="/" exact element={<Repository />} />
 			</Routes>
 			<Routes>
 				<Route path="/following" element={<Following />} />

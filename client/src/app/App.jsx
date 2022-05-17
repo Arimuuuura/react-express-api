@@ -3,15 +3,15 @@ import React from 'react';
 import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
 import './app.scss';
-import { Router } from './router/Router';
 import { BrowserRouter } from 'react-router-dom';
+import { Main } from './components/main/Main';
 
 export const App = () => {
 
   return (
     <BrowserRouter>
       <Header/>
-      <Router />
+      <Main />
       <Footer />
     </BrowserRouter>
   );
