@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { List, ListItem, Divider, Link, Typography, ListItemText, Box } from '@mui/material';
 
 export const Repository = () => {
 	const [ repositories, setRepositories ] = useState({})
@@ -15,18 +16,33 @@ export const Repository = () => {
 		<>
 			{
 				repositories.repositoryData ? (
-					<div>
+					<List>
 						{
 							repositories.repositoryData.map((repo, index) => (
 								<div key={index} className='repo-container'>
-									<a className='repo-name' href={repo.html_url}>{repo.name}</a>
-									<p>{repo.language}</p>
-									<p>{repo.updated_at}</p>
-									<p>{repo.description}</p>
+									<ListItem className='followers-container'>
+										<ListItem sx={{ width: 2/3 }} component={Link} href={repo.html_url} color="text.secondary" className='repo-name'>
+											<ListItemText primary={repo.name} secondary={repo.description} />
+										</ListItem>
+
+										<Box>
+											{
+												repo.language && (
+													<Typography variant="subtitle2" color="text.secondary" component="p">
+														Lang: {repo.language}
+													</Typography>
+												)
+											}
+											<Typography variant="subtitle2" color="text.secondary" component="p">
+												{repo.updated_at}
+											</Typography>
+										</Box>
+									</ListItem>
+									<Divider />
 								</div>
 							))
 						}
-					</div>
+					</List>
 				) : (
 					<p>User data nothing..</p>
 				)

@@ -11,9 +11,9 @@ export const Tabs = () => {
 	};
 
 	return (
-		<Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
+		<Box sx={{ width: '100%', mt: 2, bgcolor: 'background.paper' }}>
 			<MUTabs value={value} onChange={handleChange} centered>
-				<Tab label="Public Repository" component={Link} to="/repository" />
+				<Tab label="Repository" component={Link} to="/repository" />
 				<Tab label="following" component={Link} to="/following" />
 				<Tab label="followers" component={Link} to="/followers" />
 			</MUTabs>
