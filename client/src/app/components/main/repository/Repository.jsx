@@ -8,20 +8,21 @@ export const Repository = () => {
 		setRepositories({});
 		fetch("/api/repos")
 		.then(res => res.json())
-		.then(data => setRepositories(data));
+		.then(data => {
+			setRepositories(data)
+		});
 	}, []);
 
-	repositories && console.log(repositories);
 	return (
 		<>
 			{
 				repositories.repositoryData ? (
 					<List>
 						{
-							repositories.repositoryData.map((repo, index) => (
+							repositories?.repositoryData?.map((repo, index) => (
 								<div key={index} className='repo-container'>
 									<ListItem className='followers-container'>
-										<ListItem sx={{ width: 2/3 }} component={Link} href={repo.html_url} color="text.secondary" className='repo-name'>
+										<ListItem sx={{ width: 2/3 }} component={Link} href={repo.url} color="text.secondary" className='repo-name'>
 											<ListItemText primary={repo.name} secondary={repo.description} />
 										</ListItem>
 
@@ -34,7 +35,7 @@ export const Repository = () => {
 												)
 											}
 											<Typography variant="subtitle2" color="text.secondary" component="p">
-												{repo.updated_at}
+												更新日: {repo.updated_at}
 											</Typography>
 										</Box>
 									</ListItem>

@@ -51,9 +51,11 @@ export const Main = () => {
 									{data.accountData.location}
 								</Typography>
 								<Typography variant="subtitle1" color="text.secondary" component="div">
+									{/* {data.accountData.created_at} */}
 									{prepareTimestamp(data.accountData.created_at).year}年{prepareTimestamp(data.accountData.created_at).month}月からGithubを利用しています
 								</Typography>
 								<Typography variant="subtitle1" color="text.secondary" component="div">
+									{/* {data.accountData.updated_at} */}
 									最終更新{prepareTimestamp(data.accountData.updated_at).year}年{prepareTimestamp(data.accountData.updated_at).month}月
 								</Typography>
 							</Box>
