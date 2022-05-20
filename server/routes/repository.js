@@ -14,11 +14,13 @@ router.get("/api/repos", (req, res) => {
 		return {name, description, url, language, updated_at};
 	})
 
+	console.log(req.query.page);
+
 	res.send({repositoryData});
 });
 
 const repoOptions = {
-	url: 'https://api.github.com/users/Arimuuuura/repos',
+	url: 'https://api.github.com/users/Arimuuuura/repos?per_page=10',
 	method: 'GET',
 	json: true,
 	headers: {
