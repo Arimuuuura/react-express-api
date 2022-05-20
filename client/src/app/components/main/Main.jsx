@@ -2,7 +2,7 @@ import React, { memo, useEffect, useState } from 'react'
 import { Router } from '../../router/Router';
 import { Tabs } from './tabs/Tabs';
 
-import { Box, Card, CardContent, CardMedia, Typography, Link } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Typography, Link, Container, CircularProgress } from '@mui/material';
 
 export const Main = memo(() => {
 	const [ data, setData ] = useState({})
@@ -63,7 +63,11 @@ export const Main = memo(() => {
 					<Router />
 				</div>
 			) : (
-				<p>false</p>
+				<Container maxWidth="sm">
+					<Box sx={{ minHeight: '60vh', mx: 'auto', width: '80%', color: 'grey.500', display: 'flex' }}>
+						<CircularProgress sx={{ my: '80px', mx: 'auto' }} color="inherit" />
+					</Box>
+				</Container>
 			)
 			}
 		</main>

@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from 'react';
-import { List, ListItem, Divider, ListItemAvatar, Avatar, Link as MuiLink } from '@mui/material';
+import { List, ListItem, Divider, ListItemAvatar, Avatar, Link as MuiLink, Container, Box, CircularProgress } from '@mui/material';
 
 import "./followers.scss";
 
@@ -35,7 +35,11 @@ export const Followers = memo(() => {
 						}
 					</List>
 				) : (
-					<p>User data nothing..</p>
+					<Container maxWidth="sm">
+						<Box sx={{ minHeight: '60vh', mx: 'auto', width: '80%', color: 'grey.500', display: 'flex' }}>
+							<CircularProgress sx={{ my: '80px', mx: 'auto' }} color="inherit" />
+						</Box>
+					</Container>
 				)
 			}
 		</>

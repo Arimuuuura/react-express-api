@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from 'react';
-import { List, ListItem, Divider, Link, Typography, ListItemText, Box } from '@mui/material';
+import { List, ListItem, Divider, Link, Typography, ListItemText, Box, CircularProgress, Container } from '@mui/material';
 
 export const Repository = memo(() => {
 	const [ repositories, setRepositories ] = useState({})
@@ -45,7 +45,11 @@ export const Repository = memo(() => {
 						}
 					</List>
 				) : (
-					<p>User data nothing..</p>
+					<Container maxWidth="sm">
+						<Box sx={{ minHeight: '60vh', mx: 'auto', width: '80%', color: 'grey.500', display: 'flex' }}>
+							<CircularProgress sx={{ my: '80px', mx: 'auto' }} color="inherit" />
+						</Box>
+					</Container>
 				)
 			}
 		</>
