@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { Link } from "react-router-dom";
 import { Box, Tabs as MUTabs, Tab } from '@mui/material';
 
-export const Tabs = () => {
+export const Tabs = memo(() => {
 
 	const [value, setValue] = useState(0);
 
@@ -19,4 +19,4 @@ export const Tabs = () => {
 			</MUTabs>
 		</Box>
 	)
-}
+});

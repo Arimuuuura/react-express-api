@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { List, ListItem, Divider, Link, Typography, ListItemText, Box } from '@mui/material';
 
-export const Repository = () => {
+export const Repository = memo(() => {
 	const [ repositories, setRepositories ] = useState({})
 
 	useEffect(() => {
@@ -50,4 +50,4 @@ export const Repository = () => {
 			}
 		</>
 	)
-}
+});

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { Router } from '../../router/Router';
 import { Tabs } from './tabs/Tabs';
 
 import { Box, Card, CardContent, CardMedia, Typography, Link } from '@mui/material';
 
-export const Main = () => {
+export const Main = memo(() => {
 	const [ data, setData ] = useState({})
 	const [ inputName, setInputName ] = useState('')
 
@@ -68,4 +68,4 @@ export const Main = () => {
 			}
 		</main>
 	)
-}
+});

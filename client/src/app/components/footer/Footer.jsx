@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { memo } from 'react'
 
-export const Footer = () => {
+export const Footer = memo(() => {
   return (
 	<div>Footer</div>
   )
-}
+});

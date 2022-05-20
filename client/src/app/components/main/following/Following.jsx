@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { List, ListItem, Divider, ListItemAvatar, Avatar, Link as MuiLink } from '@mui/material';
 
 import "./following.scss";
 
-export const Following = () => {
+export const Following = memo(() => {
 	const [ followingUsers, setFollowingUsers ] = useState({})
 
 	useEffect(() => {
@@ -40,4 +40,4 @@ export const Following = () => {
 			}
 		</>
  	)
-}
+});

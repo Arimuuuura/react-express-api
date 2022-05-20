@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import { AppBar, Box, Toolbar, IconButton, InputBase, Link } from '@mui/material';
 
@@ -47,7 +47,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export const Header = () => {
+export const Header = memo(() => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -75,4 +75,4 @@ export const Header = () => {
       </AppBar>
     </Box>
   );
-}
+});
