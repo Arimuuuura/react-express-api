@@ -35,7 +35,7 @@ export const Repository = () => {
 												)
 											}
 											<Typography variant="subtitle2" color="text.secondary" component="p">
-												更新日: {repo.updated_at}
+												{`更新日: ${repo.updated_at.year}年${repo.updated_at.month}月${repo.updated_at.day}日`}
 											</Typography>
 										</Box>
 									</ListItem>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Router } from '../../router/Router';
 import { Tabs } from './tabs/Tabs';
 
-import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Typography, Link } from '@mui/material';
 
 export const Main = () => {
 	const [ data, setData ] = useState({})
@@ -19,12 +19,6 @@ export const Main = () => {
 		// const user = e.target.value;
 	}
 
-	const prepareTimestamp = (date) => {
-		const year = date.substr(0, 4);
-		const month = date.substr(5, 2);
-		return { year, month };
-	}
-
 	const inputUser = e => setInputName(e.target.value);
 
 	return (
@@ -39,7 +33,7 @@ export const Main = () => {
 					<Card sx={{ display: 'flex' }}>
 						<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 							<CardContent sx={{ flex: '1 0 auto' }}>
-								<Typography component="div" variant="h5">
+								<Typography className='user-name' component={Link} href={data.accountData.url} variant="h5">
 									{data.accountData.name}
 								</Typography>
 								<Typography variant="subtitle1" color="text.secondary" component="div">
@@ -51,12 +45,10 @@ export const Main = () => {
 									{data.accountData.location}
 								</Typography>
 								<Typography variant="subtitle1" color="text.secondary" component="div">
-									{/* {data.accountData.created_at} */}
-									{prepareTimestamp(data.accountData.created_at).year}年{prepareTimestamp(data.accountData.created_at).month}月からGithubを利用しています
+									{`${data.accountData.created_at.year}年${data.accountData.created_at.month}月からGithubを利用しています`}
 								</Typography>
 								<Typography variant="subtitle1" color="text.secondary" component="div">
-									{/* {data.accountData.updated_at} */}
-									最終更新{prepareTimestamp(data.accountData.updated_at).year}年{prepareTimestamp(data.accountData.updated_at).month}月
+									{`最終更新${data.accountData.updated_at.year}年${data.accountData.updated_at.month}月`}
 								</Typography>
 							</Box>
 						</Box>

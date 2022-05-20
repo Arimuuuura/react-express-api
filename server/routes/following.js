@@ -3,8 +3,15 @@ const request = require("request")
 const router = express.Router();
 
 router.get("/api/following", (req, res) => {
-	const followingUsers = following.response.body;
-	res.json({followingUsers});
+	const data = following.response.body;
+	const followingUsers = data.map((user, index) => {
+		const avatar_url = user.avatar_url;
+		const html_url = user.html_url;
+		const login = user.login;
+
+		return {avatar_url, html_url, login}
+	});
+	res.send({followingUsers});
 });
 
 const followingOptions = {
