@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 app.get("/api/hello", (req, res) => {
 	const user = req.query.user;
 	console.log(user);
-	res.send(user);
+	res.send({user});
 });
 
 // My account api

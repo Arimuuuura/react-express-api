@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
-import { AppBar, Box, Toolbar, IconButton, InputBase, Link } from '@mui/material';
+import { AppBar, Box, Toolbar, IconButton, InputBase, Link, Button } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
@@ -48,6 +48,27 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export const Header = memo(() => {
+
+
+  const [ inputName, setInputName ] = useState('');
+
+  const inputUser = e => setInputName(e.target.value);
+
+  const test = async () => {
+    // console.log(inputName);
+    const res = await fetch("/api/hello")
+    .then((res) => {
+      console.log(res.json());
+    })
+    return res;
+  }
+
+  const onClickTest = () => {
+    console.log('clicked');
+    console.log(test());
+  }
+
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -69,8 +90,13 @@ export const Header = memo(() => {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
+              onChange={inputUser}
+              name="user"
             />
           </Search>
+          <Button onClick={onClickTest} variant="contained" size="medium" color="success" sx={{ ml: 1, opacity: 0.7, ":hover": 1 }}>
+            Search
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
