@@ -6,7 +6,6 @@ import { Box, Card, CardContent, CardMedia, Typography, Link, Container, Circula
 
 export const Main = memo(() => {
 	const [ data, setData ] = useState({})
-	const [ inputName, setInputName ] = useState('')
 
 	useEffect(() => {
 		setData({});
@@ -15,18 +14,8 @@ export const Main = memo(() => {
 		.then(data => setData(data));
 	}, []);
 
-	const onClickButton = (e) => {
-		// const user = e.target.value;
-	}
-
-	const inputUser = e => setInputName(e.target.value);
-
 	return (
 		<main>
-			<form action={`http://localhost:5000/api/hello`} method='get'>
-				<input type="text" value={inputName} name="user" onChange={inputUser} />
-				<button type='submit' onClick={onClickButton}>Click Hear!!</button>
-			</form>
 			{
 			data.accountData ? (
 				<div>

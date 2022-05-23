@@ -3,7 +3,11 @@
 main {
 	max-width: 598px;
 	padding: 16px;
-	background-color: $c-grey_1;
+	background-color: $c-white;
+	margin: 0 auto;
+	border-radius: 3px;
+	box-shadow: 2px 2px 4px $c-grey_2;
+	min-height: calc(100vh - (128px + 32px));
 
 	.user {
 		&-image {
