@@ -14,8 +14,6 @@ router.get("/api/repos", (req, res) => {
 		return {name, description, url, language, updated_at};
 	})
 
-	console.log(req.query.page);
-
 	res.send({repositoryData});
 });
 

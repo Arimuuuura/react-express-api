@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import { AppBar, Box, Toolbar, IconButton, InputBase, Link, Button } from '@mui/material';
 
@@ -49,25 +49,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export const Header = memo(() => {
 
+  // const [ inputName, setInputName ] = useState('');
+  // const [ data, setData ] = useState({})
+  // const [ isClick, setIsClick ] = useState(false);
 
-  const [ inputName, setInputName ] = useState('');
+  // const inputUser = e => setInputName(e.target.value);
 
-  const inputUser = e => setInputName(e.target.value);
+  // const testData = async (inputName) => {
+  //   const res = await fetch(`/api/search?user=${inputName}`);
+  //   return res.json();
+  // };
 
-  const test = async () => {
-    // console.log(inputName);
-    const res = await fetch("/api/hello")
-    .then((res) => {
-      console.log(res.json());
-    })
-    return res;
-  }
-
-  const onClickTest = () => {
-    console.log('clicked');
-    console.log(test());
-  }
-
+  // const onClickTest = async () => {
+  //   setIsClick(!isClick);
+  //   const arimura = await testData(inputName);
+  //   console.log(arimura);
+  // }
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -83,7 +80,7 @@ export const Header = memo(() => {
             <MenuIcon />
           </IconButton>
           <Link href="/" underline="none" variant="h6" color='white' sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>HOME</Link>
-          <Search>
+          {/* <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -96,7 +93,7 @@ export const Header = memo(() => {
           </Search>
           <Button onClick={onClickTest} variant="contained" size="medium" color="success" sx={{ ml: 1, opacity: 0.7, ":hover": 1 }}>
             Search
-          </Button>
+          </Button> */}
         </Toolbar>
       </AppBar>
     </Box>
