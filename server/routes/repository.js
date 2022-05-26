@@ -4,6 +4,10 @@ const router = express.Router();
 
 const prepareTimestamp = require("../util/getDateTime");
 
+require('dotenv').config()
+const API_URL = process.env.API_URL;
+const USER = process.env.USER_NAME;
+
 router.get("/api/repos", (req, res) => {
 	const repositoryData = repository.response.body.map((repo) => {
 		const name = repo.name;
@@ -18,7 +22,7 @@ router.get("/api/repos", (req, res) => {
 });
 
 const repoOptions = {
-	url: 'https://api.github.com/users/Arimuuuura/repos?per_page=10',
+	url: `${API_URL}/${USER}/repos?per_page=10`,
 	method: 'GET',
 	json: true,
 	headers: {
