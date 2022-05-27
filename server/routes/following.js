@@ -2,6 +2,10 @@ const express = require("express");
 const request = require("request")
 const router = express.Router();
 
+require('dotenv').config()
+const API_URL = process.env.API_URL;
+const USER = process.env.USER_NAME;
+
 router.get("/api/following", (req, res) => {
 	const data = following.response.body;
 	const followingUsers = data.map((user, index) => {
@@ -15,7 +19,7 @@ router.get("/api/following", (req, res) => {
 });
 
 const followingOptions = {
-	url: 'https://api.github.com/users/Arimuuuura/following?per_page=100',
+	url: `${API_URL}/${USER}/following?per_page=100`,
 	method: 'GET',
 	json: true,
 	headers: {

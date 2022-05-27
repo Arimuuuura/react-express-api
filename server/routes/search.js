@@ -2,6 +2,9 @@ const express = require("express");
 const request = require("request");
 const router = express.Router();
 
+require('dotenv').config()
+const API_URL = process.env.API_URL;
+
 const prepareTimestamp = require("../util/getDateTime");
 
 let GEST;
@@ -14,7 +17,7 @@ router.get("/api/search", (req, res) => {
 
 const myOptions = (user) => {
 	return {
-		url: `https://api.github.com/users/${user}`,
+		url: `${API_URL}/${user}`,
 		method: 'GET',
 		json: true,
 		headers: {

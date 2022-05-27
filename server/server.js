@@ -1,7 +1,10 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const PORT = 5000;
+
+require('dotenv').config()
+const API_SERVER = process.env.API_SERVER;
+const PORT = process.env.PORT;
 
 const myAccountRouter = require("./routes/my_account");
 const followingRouter = require("./routes/following");
@@ -31,5 +34,5 @@ app.use("/", repositoryRouter);
 app.use("/", searchRouter);
 
 app.listen(PORT, () => {
-	console.log(`Backend server port ${PORT}... http://localhost:${PORT}`);
+	console.log(`Backend server port ${PORT}... ${API_SERVER}:${PORT}`);
 });
